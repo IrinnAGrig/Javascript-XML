@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+}
+
+#numbers {
+  color: white;
+  column-gap: 20px;
+  width: 600px;
+}
+
+
+.cont {
+  margin: 3px;
+  display: inline-block;
+  width: 90px;
+  padding: 20px 30px;
+  text-align: center;
+}
+
+.odd {
+  background-color: rgb(12, 221, 12);
+}
+
+.even {
+  background-color: rgb(223, 223, 25);
+}
+
+.prime {
+  background-color: rgb(247, 68, 68);
+}

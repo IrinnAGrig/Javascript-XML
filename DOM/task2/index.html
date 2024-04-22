@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <title>User Info</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="d-flex justify-content-between mb-4 mt-4">
+      <div>
+        <h2>User Information</h2>
+      </div>
+      <div>
+        <button type="button" class="btn btn-outline-black" id="buttonAdd" onclick="showForm()" disabled>Add
+          user</button>
+      </div>
+    </div>
+
+    <div id="prompt-data">
+      <h3>Choose a type amount of data!</h3>
+      <button class="btn" onclick="getData(true)">
+        Get less data
+      </button>
+      <button class="btn" onclick="getData(false)">
+        Get more data
+      </button>
+    </div>
+
+    <form id="user-form">
+      <div class="row">
+        <div class="col">
+          <div class="form-floating mb-3">
+            <label for="id">Id</label>
+            <input type="number" class="form-control" id="id" placeholder="Id" required>
+          </div>
+          <div class="form-floating mb-3">
+            <label for="firstName">First Name </label>
+            <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Ion" required>
+          </div>
+          <div class="form-floating mb-3">
+            <label for="lastName">Last Name </label>
+            <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Bivol" required>
+          </div>
+          <div class="form-floating mb-3">
+            <label for="email">Email </label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Bivol" required>
+          </div>
+          <div class="form-floating mb-3">
+            <label for="phone">Phone </label>
+            <input type="text" id="phone" name="phone" class="form-control" placeholder="+373 12 345 678" required>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating mb-3">
+            <label for="streetAddress">Street Address </label>
+            <input type="text" id="streetAddress" name="streetAddress" class="form-control" required
+              placeholder="st. Teodorovici">
+          </div>
+          <div class="form-floating mb-3">
+            <label for="city">City </label>
+            <input type="text" id="city" name="city" class="form-control" placeholder="Chisinau" required>
+          </div>
+          <div class="form-floating mb-3">
+            <label for="state">State </label>
+            <input type="text" id="state" name="state" class="form-control" placeholder="Republica Moldova" required>
+          </div>
+          <div class="form-floating mb-3">
+            <label for="zip">ZIP Code </label>
+            <input type="text" id="zip" name="zip" class="form-control" placeholder="1732" required>
+          </div>
+        </div>
+      </div>
+      <div class="form-floating mb-3">
+        <label for="description">Description </label>
+        <textarea id="description" class="form-control" name="description" rows="4" cols="50"
+          placeholder="Description"></textarea>
+      </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <button type="button" class="btn btn-black" onclick="cancelAddingProces()">Cancel</button>
+        </div>
+        <div class="col-lg-3">
+          <button type="button" class="btn btn-outline-black" onclick="submitForm()">Add to Table</button>
+        </div>
+      </div>
+    </form>
+    <div id="user-table">
+      <table class="table">
+        <thead>
+          <tr>
+            <th onclick="sortTable('id')" style="width: 100px;">ID<img id="id-image" height="15"
+                src="./images/arrow.png">
+            </th>
+            <th onclick="sortTable('firstName')">First Name <img id="firstName-image" height="15"
+                src="./images/arrow.png">
+            </th>
+            <th onclick="sortTable('lastName')">Second Name <img id="lastName-image" height="15"
+                src="./images/arrow.png">
+            </th>
+            <th onclick="sortTable('email')">Email <img id="email-image" height="15" src="./images/arrow.png"></th>
+            <th onclick="sortTable('phone')">Phone <img id="phone-image" height="15" src="./images/arrow.png"></th>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="user-info-table"></tbody>
+        <div id="spinn">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden"></span>
+          </div>
+        </div>
+      </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination" id="pagination-list">
+        </ul>
+      </nav>
+
+      <div id="single-card">
+        <h5 id="user-info">User selected:</h5>
+        <div class="input-group">
+          <span class="input-group-text">Description</span>
+          <textarea id="description" class="form-control" aria-label="With textarea" disabled></textarea>
+        </div>
+        <div class="row mt-4" id="address-info">
+          <div class="col">
+            <p>Residential address: <b id="streetAddress"></b></p>
+            <p>City: <b id="city"></b></p>
+          </div>
+          <div class="col">
+            <p>Province/state: <b id="state"></b></p>
+            <p>Index: <b id="zip"></b></p>
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-black" onclick="cancelCard()">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+  <script src="./scripts/script.js"></script>
+  <script src="./scripts/models.js"></script>
+</body>
+
+</html>

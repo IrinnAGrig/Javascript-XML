@@ -1,0 +1,18 @@
+/*if (temp && temp.toString().length > 10) {
+                    let formattedNumber = temp.toExponential(8).toString();
+                    temp = formattedNumber;
+                    console.log(temp);
+                }else{
+                    temp = parseFloat(temp.toFixed(10)).toString();
+                }  */
+                /*if (temp && temp.toString().split('.')[1].length > 8) {
+                    temp = parseFloat(temp.toFixed(8)).toString();
+                } else {
+                    if (temp && temp.toString().length > 10) {
+                        let formattedNumber = temp.toExponential(8).toString();
+                        temp = formattedNumber;
+                        console.log(temp);
+                    }else{
+                        temp = parseFloat(temp.toFixed(8)).toString();
+                    }
+                }*/

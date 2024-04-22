@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+}
+
+.calculator{
+  width: 300px;
+  margin: 30px auto;
+  background-color: black;
+  border: 1px solid gray;
+  border-radius: 20px;
+}
+.screen{
+  height: 70px;
+  width: 90%;
+  margin: 10px auto;
+  background-color: aliceblue;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.screen h3 {
+  margin: 0;
+}
+
+.table-calc{
+  width: 90%;
+  text-align: center;
+  margin: 10px auto;
+  color: white;
+}
+td{
+  border: 1px solid gray;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 5px 3px;
+}
+td:hover{
+  background-color: white;
+  color: black;
+}
+#ecuation, #result{
+  margin: 5px 0;
+}
